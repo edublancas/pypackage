@@ -16,7 +16,7 @@ from setuptools import setup
 
 _version_re = re.compile(r'__version__\s+=\s+(.*)')
 
-with open('src/yass/__init__.py', 'rb') as f:
+with open('src/pkgname/__init__.py', 'rb') as f:
     VERSION = str(ast.literal_eval(_version_re.search(
         f.read().decode('utf-8')).group(1)))
 
