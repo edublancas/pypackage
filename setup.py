@@ -37,7 +37,7 @@ setup(
         re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
-    author='Ionel Cristian Mărieș',
+    author='Eduardo Blancas',
     author_email='fkq8@blancas.io',
     url='https://github.com/edublancas/no-name',
     packages=find_packages('src'),
