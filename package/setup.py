@@ -14,6 +14,13 @@ from setuptools import find_packages
 from setuptools import setup
 
 
+NAME = 'package-name'
+DESCRIPTION = 'Package description'
+LICENSE = 'license name'
+AUTHOR = 'Eduardo Blancas'
+EMAIL = 'fkq8@blancas.io'
+URL = 'https://github.com/edublancas/package-name'
+
 _version_re = re.compile(r'__version__\s+=\s+(.*)')
 
 with open('src/pkgname/__init__.py', 'rb') as f:
@@ -29,24 +36,25 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='no-name',
+    name=NAME,
     version=VERSION,
-    license='A license',
-    description='An example package. Generated with https://github.com/edublancas/pypackage',
+    license=LICENSE,
+    description=DESCRIPTION,
     long_description='%s\n%s' % (
-        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
+        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S)
+        .sub('', read('README.rst')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
     ),
-    author='Eduardo Blancas',
-    author_email='fkq8@blancas.io',
-    url='https://github.com/edublancas/no-name',
+    author=AUTHOR,
+    author_email=EMAIL,
+    url=URL,
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
     include_package_data=True,
-    zip_safe=False,
     classifiers=[
-        # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        # complete classifier list:
+        # http://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
@@ -61,10 +69,6 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        # uncomment if you test on these interpreters:
-        # 'Programming Language :: Python :: Implementation :: IronPython',
-        # 'Programming Language :: Python :: Implementation :: Jython',
-        # 'Programming Language :: Python :: Implementation :: Stackless',
         'Topic :: Utilities',
     ],
     keywords=[
