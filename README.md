@@ -73,3 +73,52 @@ Recommended use case: when the step is simple (one small to medium
 `.ipynb` file) and want to avoid more setup.
 
 ## Approach 2: Python package
+
+The recommended alternative is to bundle your code as a Python package, it only requires a `setup.py` file.
+
+```shell
+# install package using pip
+pip install --editable package/
+
+# note: the --editable will install the package
+# on editable mode, this means that changes
+# made in the source code will take effect
+# next time you open a Python session,
+# very useful for development
+```
+
+Once installed you can import your code like this:
+
+```python
+# you can import this everywhere since it is added to your python
+# environment
+from package import math
+
+math.power(2, 3)
+```
+
+To run the CLI (from any directory):
+
+```shell
+python -m package.power 2 3
+```
+
+You can also provide a specific command to run your code, uncomment lines 86-88 from the sample `setup.py` file:
+
+```python
+entry_points = {
+    'console_scripts': [
+        'power = package.power:main',
+    ]
+},
+```
+
+Re-install (this is required when you update `setup.py`): `pip install --editable package`
+
+Then you can run your function like this:
+
+```shell
+power 2 3
+```
+
+

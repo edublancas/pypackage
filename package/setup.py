@@ -14,16 +14,16 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-NAME = 'package-name'
+NAME = 'package'
 DESCRIPTION = 'Package description'
 LICENSE = 'license name'
 AUTHOR = 'Eduardo Blancas'
 EMAIL = 'fkq8@blancas.io'
-URL = 'https://github.com/edublancas/package-name'
+URL = 'https://github.com/edublancas/package'
 
 _version_re = re.compile(r'__version__\s+=\s+(.*)')
 
-with open('src/pkgname/__init__.py', 'rb') as f:
+with open('src/package/__init__.py', 'rb') as f:
     VERSION = str(ast.literal_eval(_version_re.search(
         f.read().decode('utf-8')).group(1)))
 
@@ -84,7 +84,7 @@ setup(
     },
     entry_points={
         # 'console_scripts': [
-        #     'nameless = nameless.cli:main',
+        #     'power = package.power:main',
         # ]
     },
 )
